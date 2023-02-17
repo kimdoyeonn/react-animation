@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-animation/static/css/main.073c9b0a.css",
+    "main.js": "/react-animation/static/js/main.dcfade54.js",
+    "static/js/787.7058ca53.chunk.js": "/react-animation/static/js/787.7058ca53.chunk.js",
+    "index.html": "/react-animation/index.html",
+    "main.073c9b0a.css.map": "/react-animation/static/css/main.073c9b0a.css.map",
+    "main.dcfade54.js.map": "/react-animation/static/js/main.dcfade54.js.map",
+    "787.7058ca53.chunk.js.map": "/react-animation/static/js/787.7058ca53.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.dcfade54.js"
+  ]
+}
