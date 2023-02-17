@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -27,11 +26,12 @@ const Button = styled(motion.button)`
   border-radius: 4px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
   cursor: pointer;
+  font-size: 1rem;
 `;
 
 const Container = styled(motion.div)`
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -72,7 +72,7 @@ const overlay = {
 };
 
 const boxVariants = {
-  visible: (custom: any) => ({
+  visible: (custom: string) => ({
     originX: custom,
     originY: custom,
   }),
@@ -82,12 +82,18 @@ const boxVariants = {
 };
 
 const buttonVariants = {
-  visible: (custom: any) => ({
-    color: custom ? 'rgb(229,73,161)' : 'rgb(107, 100, 241)',
-    width: custom ? '5.5rem' : '4.5rem',
-    height: custom ? '3rem' : '2.5rem',
-    fontSize: custom ? '1.3rem' : '1rem',
+  visible: (custom: string) => ({
+    color: !custom ? 'rgb(229,73,161)' : 'rgb(107, 100, 241)',
+    width: !custom ? '5.5rem' : '4.5rem',
+    height: !custom ? '3rem' : '2.5rem',
+    fontSize: !custom ? '1.3rem' : '1rem',
   }),
+  initial: {
+    fontSize: '1rem',
+    height: '2.5rem',
+    width: '4.5rem',
+    color: 'rgb(107, 100, 241)',
+  },
 };
 
 function App() {
@@ -120,10 +126,8 @@ function App() {
         <Button
           custom={click}
           animate='visible'
+          initial='initial'
           variants={buttonVariants}
-          // animate={(custom: any) => ({
-          //   color: 'rgb(229,73,161)',
-          // })}
           onClick={toggleClick}
         >
           Switch
@@ -145,9 +149,7 @@ function App() {
                 height: '350px',
                 width: '300px',
               }}
-            >
-              {id}
-            </Box>
+            />
           </Overlay>
         ) : null}
       </AnimatePresence>
